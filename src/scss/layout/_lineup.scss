@@ -1,0 +1,74 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.lineup {
+  padding: 10rem 0;
+  background-color: v.$rosa;
+  
+  h3, .dia {
+    text-align: center;
+    color: v.$blanco;
+  }
+
+  .dia {
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+}
+
+.escenarios-contenedor {
+  .escenario:nth-child(even) {
+    margin-top: 1.5rem;
+  }
+
+  @include m.contenedor;
+  @include m.tablet {
+    .escenario:nth-child(even) {
+      margin-top: 0;
+    }
+
+    @include m.grid(2);
+  }
+}
+
+.escenario {
+  padding-top: 2rem;
+
+  .nombre-escenario {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+
+.calendario {
+  @include m.resetear-lista;
+
+  li {
+    padding: 2.5rem;
+    font-weight: 700;
+
+    span {
+      font-weight: 400;
+    }
+  }
+}
+
+.bg-amarillo {
+  background-color: v.$amarillo;
+
+  /* Aplicar estilos en odd (hijos impares) o even (pares)*/
+  li:nth-child(odd) { 
+    background-color: lighten(v.$amarillo, 5%);
+  }
+}
+
+.bg-verde {
+  background-color: v.$verde;
+
+  /* Aplicar estilos en odd (hijos impares) o even (pares)*/
+  li:nth-child(odd) { 
+    background-color: lighten(v.$verde, 5%);
+  }
+}
